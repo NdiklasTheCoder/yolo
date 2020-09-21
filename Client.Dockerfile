@@ -2,6 +2,7 @@ FROM alpine:latest
 
 LABEL maintain = "ndiklas<nicholas.v.ndiki@gmail.com"
 
+RUN apk update && apk add nodejs nodejs-npm
 COPY client /client
 WORKDIR /client
 RUN npm install

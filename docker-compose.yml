@@ -1,17 +1,17 @@
 version: "3.7"
 services:
     client:
-        image: tmatara/yolo-client:1.0
+        image: ndiklas/yolo-client:1.0
         build:  
             context: . 
-            dockerfile: client.Dockerfile
+            dockerfile: Client.Dockerfile
         ports:
             - 3000:3000
     backend:
-        image: tmatara/yolo-backend:1.0
+        image: ndiklas/yolo-backend:1.0
         build:
             context: .
-            dockerfile: backend.Dockerfile
+            dockerfile: Back.Dockerfile
         ports:
             - 5000:5000
         depends_on:
