@@ -1,22 +1,22 @@
 version: "3.7"
 services:
-client:
-image: tmatara/yolo-client:1.0
-build:
-context: .
-dockerfile: client.Dockerfile
-ports:
-- 3000:3000
-backend:
-image: tmatara/yolo-backend:1.0
-build:
-context: .
-dockerfile: backend.Dockerfile
-ports:
-- 5000:5000
-depends_on:
-- mongo
-mongo:
-image: mongo
-ports:
-- 27017:27017
+    client:
+        image: tmatara/yolo-client:1.0
+        build:  
+            context: . 
+            dockerfile: client.Dockerfile
+        ports:
+            - 3000:3000
+    backend:
+        image: tmatara/yolo-backend:1.0
+        build:
+            context: .
+            dockerfile: backend.Dockerfile
+        ports:
+            - 5000:5000
+        depends_on:
+            - mongo
+    mongo:
+        image: mongo
+        ports:
+            - 27017:27017
