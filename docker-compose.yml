@@ -1,17 +1,21 @@
 version: "3.7"
 services:
     client:
-        image: ndiklas/yolo-client:1.0
+        image: ndiklasthecoder/yolo-client:1.0
         build:  
             context: . 
-            dockerfile: Client.Dockerfile
+            args: 
+                - BUILD_DATE
+            dockerfile: client.Dockerfile
+        links: 
+            - backend
         ports:
             - 3000:3000
     backend:
-        image: ndiklas/yolo-backend:1.0
+        image: ndiklasthecoder/yolo-backend:1.0
         build:
             context: .
-            dockerfile: Back.Dockerfile
+            dockerfile: backend.Dockerfile
         ports:
             - 5000:5000
         depends_on:
